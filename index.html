@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="행정안전부 지방공무원 임용령 및 평정규칙 개정안 입법예고. 핵심 인사교류 참여자 혜택(인사 인센티브) 및 한국사 대체 등 채용제도 개선안 안내.">
+    <title>지방공무원 인사교류 활성화 및 채용제도 개선 안내</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-hsl: 224, 90%, 58%;
+            --primary: hsl(var(--primary-hsl));
+            --primary-hover: hsl(224, 90%, 48%);
+            --primary-light: hsl(224, 90%, 96%);
+            --accent-hsl: 262, 83%, 58%;
+            --accent: hsl(var(--accent-hsl));
+            --accent-light: hsl(262, 83%, 96%);
+            
+            /* Light Theme Values */
+            --bg-body: #f4f7fb;
+            --bg-card: #ffffff;
+            --bg-card-rgb: 255, 255, 255;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --quote-bg: #f8fafc;
+            --quote-border: var(--primary);
+            --header-overlay: radial-gradient(circle at 10% 20%, rgba(224, 231, 255, 0.4) 0%, rgba(0, 0, 0, 0) 90%);
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
+            
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme Values */
+            --bg-body: #0b0f19;
+            --bg-card: #151d30;
+            --bg-card-rgb: 21, 29, 48;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --quote-bg: #1e294b;
+            --quote-border: #818cf8;
+            --primary-light: rgba(99, 102, 241, 0.15);
+            --accent-light: rgba(168, 85, 247, 0.15);
+            --header-overlay: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 90%);
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+            --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color var(--transition-slow), color var(--transition-slow);
+            overflow-x: hidden;
+        }
+
+        /* Scroll Progress Bar */
+        #scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Layout Container */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Styles */
+        header {
+            position: relative;
+            padding: 80px 0 60px;
+            background-image: var(--header-overlay);
+            overflow: hidden;
+        }
+
+        .header-bg-glow {
+            position: absolute;
+            top: -200px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            filter: blur(50px);
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .gov-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: var(--primary-light);
+            padding: 6px 14px;
+            border-radius: 99px;
+            transition: background-color var(--transition-normal);
+        }
+
+        .gov-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Dark Mode Toggle Button */
+        #theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 99px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        #theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        #theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .title-area {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .meta-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        h1#main-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-main);
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            word-break: keep-all;
+        }
+
+        .doc-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Main Content Grid */
+        main {
+            padding: 20px 0 80px;
+        }
+
+        .intro-lead {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            background: var(--bg-card);
+            border-left: 5px solid var(--accent);
+            padding: 24px;
+            border-radius: 0 16px 16px 0;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+            line-height: 1.7;
+            word-break: keep-all;
+        }
+
+        /* Grid Layout */
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .sectors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Cards */
+        .sector-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sector-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .sector-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .sector-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: all var(--transition-normal);
+        }
+
+        .sector-card:nth-child(1) .card-icon {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .sector-card:nth-child(2) .card-icon {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .card-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .sector-card h2 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sector-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            background: var(--border-color);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        /* Custom Styled List */
+        .key-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            flex-grow: 1;
+        }
+
+        .key-list li {
+            position: relative;
+            padding-left: 28px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            transition: color var(--transition-fast);
+            word-break: keep-all;
+        }
+
+        .key-list li strong {
+            display: block;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .key-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: var(--bg-card);
+            box-sizing: border-box;
+            transition: all var(--transition-normal);
+        }
+
+        .sector-card:nth-child(2) .key-list li::before {
+            border-color: var(--accent);
+        }
+
+        .key-list li:hover::before {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .sector-card:nth-child(2) .key-list li:hover::before {
+            background: var(--accent);
+        }
+
+        .key-list li .desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Minister Quote Section */
+        .quote-section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        blockquote#minister-quote {
+            background: var(--quote-bg);
+            border-left: 6px solid var(--quote-border);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-slow);
+        }
+
+        blockquote#minister-quote:hover {
+            box-shadow: var(--shadow-md);
+            transform: scale(1.01);
+        }
+
+        blockquote#minister-quote::after {
+            content: '“';
+            position: absolute;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12rem;
+            color: rgba(99, 102, 241, 0.05);
+            font-weight: 900;
+            top: -50px;
+            right: 20px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .quote-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            word-break: keep-all;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .author-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Schedule & Action Card */
+        .schedule-card {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        [data-theme="dark"] .schedule-card {
+            background: linear-gradient(135deg, #0f172a, #020617);
+            border: 1px solid var(--border-color);
+        }
+
+        .schedule-info {
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .schedule-tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #818cf8;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .schedule-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .schedule-desc {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .schedule-btn {
+            background: white;
+            color: #0f172a;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1;
+        }
+
+        .schedule-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .schedule-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            transition: background-color var(--transition-slow), border-color var(--transition-slow);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .footer-contacts {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal for Opinions */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-normal);
+            z-index: 2000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform var(--transition-normal);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--text-main);
+        }
+
+        .modal-close svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-body);
+            color: var(--text-main);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-indicator" aria-hidden="true"></div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-bg-glow"></div>
+        <div class="container">
+            <div class="top-nav">
+                <div class="gov-badge" id="gov-badge-indicator">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2v-2zm0-6h2v4h-2v-4z"/>
+                    </svg>
+                    <span>Ministry of the Interior and Safety</span>
+                </div>
+                <!-- Theme toggle button with unique ID -->
+                <button id="theme-toggle" aria-label="테마 전환 버튼">
+                    <svg viewBox="0 0 24 24" id="sun-icon">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <span id="theme-text">다크 모드</span>
+                </button>
+            </div>
+            
+            <div class="title-area">
+                <span class="meta-badge" id="category-badge">행정안전부 입법예고</span>
+                <!-- H1 Page Title -->
+                <h1 id="main-title">공무원 인사교류 활성화 및 채용제도 개선 입법예고</h1>
+                
+                <div class="doc-meta">
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span>배포일시: 2026. 05. 11.(월) 즉시배포</span>
+                    </div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>담당부서: 지방인사제도과</span>
+                    </div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>연락처: 044-205-3347</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Lead Section -->
+        <p class="intro-lead" id="intro-paragraph">
+            행정안전부는 중앙부처·지방정부·민간기업 간 벽을 허무는 '프로젝트 기반 인사교류' 활성화를 위해 교류 참여자에게 파격적인 인사 혜택을 제공하고, 우수한 공직 인재 영입을 극대화하기 위해 시험 제도를 합리적으로 개선하는 「지방공무원 임용령」·「지방공무원 평정규칙」 개정안을 입법예고합니다.
+        </p>
+
+        <!-- Two Sectors Grid -->
+        <div class="sectors-grid">
+            <!-- Sector 1: 인사 인센티브 -->
+            <section id="sector-incentive" class="sector-card" aria-labelledby="sector-incentive-title">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+                <h2 id="sector-incentive-title">
+                    <span class="sector-number">①</span> 인사 인센티브
+                </h2>
+                <!-- Key Content List -->
+                <ul class="key-list" id="incentive-list">
+                    <li>
+                        <strong>승진 소요 연수 감면 (최대 1년)</strong>
+                        <span class="desc">핵심 인사교류 직위나 민간기업 전담공무원으로 활약 시, 교류 기간 절반을 최대 1년까지 승진 소요 연수에서 감면합니다.</span>
+                    </li>
+                    <li>
+                        <strong>특별승진 기회 부여</strong>
+                        <span class="desc">해당 교류 직위에서 1년 이상 우수한 성과를 거두어 근무한 공무원에게 파격적인 특별승진 기회를 제공합니다.</span>
+                    </li>
+                    <li>
+                        <strong>대우공무원 혜택 범위 확대</strong>
+                        <span class="desc">그동안 인사교류자에게만 한정되어 부여되던 '대우공무원 산정 시 교류 기간 경력 100% 단축' 혜택을 민간기업 전담공무원에게도 확대 적용합니다.</span>
+                    </li>
+                    <li>
+                        <strong>근무평정 및 성과급 최저선 보장</strong>
+                        <span class="desc">평정 단위를 독자적으로 분리하여 근무성적평정 최소 '우', 성과급 최소 'A' 등급을 의무적으로 보장하며 최상위 성과자에게는 특별성과가산금을 지급합니다.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Sector 2: 채용제도 개선 -->
+            <section id="sector-recruitment" class="sector-card" aria-labelledby="sector-recruitment-title">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <polyline points="16 11 18 13 22 9"></polyline>
+                    </svg>
+                </div>
+                <h2 id="sector-recruitment-title">
+                    <span class="sector-number">②</span> 채용제도 개선
+                </h2>
+                <!-- Key Content List -->
+                <ul class="key-list" id="recruitment-list">
+                    <li>
+                        <strong>8급 한국사 시험대체 (2027년~)</strong>
+                        <span class="desc">수험생들의 시험 준비 부담을 경감하기 위해 2027년부터 8급 공채 시험의 한국사 과목을 '한국사능력검정시험(3급 이상)'으로 전격 대체합니다.</span>
+                    </li>
+                    <li>
+                        <strong>경력요건 단축 및 추천 채용 범위 확대</strong>
+                        <span class="desc">특정 분야 경력경쟁 채용의 필수 요구 경력을 최대 1년 단축할 수 있는 근거를 신설하고, 우수 인재 추천채용 대상을 기존 8급 이하에서 7급까지 넓힙니다.</span>
+                    </li>
+                    <li>
+                        <strong>취약 청년 공직 진출 진입장벽 완화</strong>
+                        <span class="desc">9급 공채 저소득층 구분모집 대상에 '자립준비청년'과 '보호기간 연장청년'을 추가하며, 자격 유지 필요 기간을 기존 2년에서 1년으로 대폭 단축합니다.</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Minister Quote Section -->
+        <div class="quote-section">
+            <blockquote id="minister-quote" aria-labelledby="quote-author-name">
+                <p class="quote-text">
+                    "이번 조치는 프로젝트 기반 인사교류를 통해 대규모 국책사업 등에 참여하는 공무원에게 파격적인 인센티브를 부여해 보다 성공적인 사업 추진을 돕기 위한 것"이라며, "앞으로도 공직사회의 개방성을 확대하고 활력을 제고할 수 있도록 지방인사제도를 적극적으로 개선해 나가겠다"
+                </p>
+                <div class="quote-author">
+                    <div class="author-avatar" aria-hidden="true">윤</div>
+                    <div class="author-info">
+                        <span class="author-name" id="quote-author-name">윤호중</span>
+                        <span class="author-title">행정안전부 장관</span>
+                    </div>
+                </div>
+            </blockquote>
+        </div>
+
+        <!-- Interactive CTA Card (Implementation Plan Details) -->
+        <div class="schedule-card" id="schedule-action-panel">
+            <div class="schedule-info">
+                <span class="schedule-tag">시행 일정 및 의견 제출</span>
+                <h3 class="schedule-title">2026년 하반기 공포 및 시행 예정</h3>
+                <p class="schedule-desc">
+                    본 개정안은 2026년 5월 11일부터 6월 10일까지 입법예고를 통해 각계의 다양한 의견을 수렴합니다. 국민 누구나 행정안전부 홈페이지와 대한민국 전자관보를 통해 참여할 수 있습니다.
+                </p>
+            </div>
+            <button class="schedule-btn" id="open-opinion-modal-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>의견 제출하기</span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <span class="footer-logo">Ministry of the Interior and Safety</span>
+            <div class="footer-contacts">
+                <span>담당자: 지방인사제도과 김정민 (044-205-3347)</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Opinion Modal -->
+    <div class="modal" id="opinion-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title-text">개정안 의견 제출</h3>
+                <button class="modal-close" id="close-opinion-modal-btn" aria-label="모달 닫기">
+                    <svg viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <form id="opinion-form" onsubmit="event.preventDefault(); alert('소중한 의견이 제출되었습니다. (모의 제출)'); document.getElementById('opinion-modal').classList.remove('active');">
+                <div class="form-group">
+                    <label class="form-label" for="opinion-name">성명/단체명</label>
+                    <input type="text" id="opinion-name" class="form-input" placeholder="성명 또는 단체명을 입력하세요" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="opinion-text">의견 요지</label>
+                    <textarea id="opinion-text" class="form-textarea" placeholder="개정안에 대한 구체적인 의견을 자유롭게 기재해 주세요" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submit-opinion-btn">의견 등록</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Interactive Script -->
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeText = document.getElementById('theme-text');
+        const sunIcon = document.getElementById('sun-icon');
+        const scrollIndicator = document.getElementById('scroll-indicator');
+        const openModalBtn = document.getElementById('open-opinion-modal-btn');
+        const closeModalBtn = document.getElementById('close-opinion-modal-btn');
+        const modal = document.getElementById('opinion-modal');
+
+        // Scroll Progress Handler
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollIndicator.style.width = scrolled + '%';
+        });
+
+        // Theme Toggle Handler
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            themeText.textContent = newTheme === 'light' ? '다크 모드' : '라이트 모드';
+            
+            // Toggle icon representation
+            if (newTheme === 'dark') {
+                sunIcon.innerHTML = `
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                `;
+            } else {
+                sunIcon.innerHTML = `
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                `;
+            }
+        });
+
+        // Modal Open/Close Handler
+        openModalBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside of contents
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
