@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>정부 안내서비스 한눈에 보기</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #15345b;
+      --blue: #1769aa;
+      --pale-blue: #edf6fc;
+      --ink: #202b36;
+      --muted: #637383;
+      --line: #dce5ec;
+      --surface: #fff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f5f8fb;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.6;
+    }
+
+    .site-header {
+      padding: 34px 24px 30px;
+      color: #fff;
+      background: linear-gradient(120deg, #12345a, #1769aa);
+    }
+
+    .header-inner, main, footer {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #cbe6fa;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.25;
+    }
+
+    .intro {
+      margin: 12px 0 0;
+      color: #e3f1fb;
+      font-size: 16px;
+    }
+
+    main { padding: 28px 24px 48px; }
+
+    .news-section { margin-bottom: 38px; }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .news-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #e8eef3;
+      object-fit: cover;
+    }
+
+    .search-panel {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 5px 18px rgb(21 52 91 / 5%);
+    }
+
+    .search-copy { flex: 1; }
+    .search-copy h2 { margin-bottom: 3px; }
+    .search-copy p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .search-control {
+      display: flex;
+      width: min(460px, 55%);
+    }
+
+    .search-control input {
+      width: 100%;
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid #aebdca;
+      border-right: 0;
+      border-radius: 8px 0 0 8px;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .search-control input:focus {
+      outline: 3px solid #b9def7;
+      outline-offset: 1px;
+    }
+
+    .search-control button {
+      padding: 0 18px;
+      border: 0;
+      border-radius: 0 8px 8px 0;
+      color: #fff;
+      background: var(--blue);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .results-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 26px 2px 14px;
+    }
+
+    .results-count { margin: 0; color: var(--muted); }
+    .results-count strong { color: var(--blue); font-size: 19px; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .category-card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 5px 18px rgb(21 52 91 / 4%);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .category-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .count-badge {
+      flex: none;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #145b91;
+      background: var(--pale-blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .representative {
+      margin: 12px 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .representative strong { color: var(--ink); }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .service-list li {
+      padding: 5px 9px;
+      border: 1px solid #e3eaf0;
+      border-radius: 6px;
+      color: #394b5b;
+      background: #f8fafc;
+      font-size: 13px;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 42px 20px;
+      border: 1px dashed #b9c8d4;
+      border-radius: 12px;
+      color: var(--muted);
+      background: #fff;
+      text-align: center;
+    }
+
+    footer {
+      padding: 20px 24px 30px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .search-panel { align-items: stretch; flex-direction: column; }
+      .search-control { width: 100%; }
+    }
+
+    @media (max-width: 520px) {
+      main { padding-right: 16px; padding-left: 16px; }
+      .site-header { padding-right: 16px; padding-left: 16px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .section-heading { align-items: start; flex-direction: column; gap: 4px; }
+      .category-card { padding: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">행정안전부 안내서비스</p>
+      <h1>필요한 안내를 한눈에</h1>
+      <p class="intro">분야별 안내서비스와 대표 문의기관을 확인하고 빠르게 찾아보세요.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="news-section" aria-labelledby="news-title">
+      <div class="section-heading">
+        <h2 id="news-title">안내 카드뉴스</h2>
+        <p class="section-note">안내서비스 이용에 도움이 되는 자료입니다.</p>
+      </div>
+      <div class="news-grid">
+        <img class="news-image" src="이미지/카드뉴스1.png" alt="안내서비스 카드뉴스 1">
+        <img class="news-image" src="이미지/카드뉴스2.png" alt="안내서비스 카드뉴스 2">
+        <img class="news-image" src="이미지/카드뉴스3.png" alt="안내서비스 카드뉴스 3">
+        <img class="news-image" src="이미지/카드뉴스4.png" alt="안내서비스 카드뉴스 4">
+      </div>
+    </section>
+
+    <section aria-labelledby="search-title">
+      <div class="search-panel">
+        <div class="search-copy">
+          <h2 id="search-title">안내서비스 검색</h2>
+          <p>카테고리명 또는 문의기관을 입력해 보세요.</p>
+        </div>
+        <form class="search-control" id="search-form" role="search">
+          <input id="search-input" type="search" aria-label="카테고리 또는 문의기관 검색" placeholder="예: 복지, 보건복지부">
+          <button type="submit">검색</button>
+        </form>
+      </div>
+      <div class="results-bar">
+        <p class="results-count" id="results-count" aria-live="polite"></p>
+      </div>
+      <div class="card-grid" id="category-cards"></div>
+    </section>
+  </main>
+
+  <footer>※ 제공된 안내서비스 목록을 바탕으로 구성한 정보입니다. 최신 안내는 해당 문의기관에서 확인해 주세요.</footer>
+
+  <script>
+    const services = [
+      ["민원", "주민등록 발급 안내", "국토교통부"],
+      ["민원", "전입신고 안내", "보건복지부"],
+      ["민원", "인감증명 안내", "국토교통부"],
+      ["민원", "민원접수 안내", "교육부"],
+      ["민원", "정부24 이용 안내", "국토교통부"],
+      ["복지", "기초연금 안내", "보건복지부"],
+      ["복지", "복지급여 안내", "고용노동부"],
+      ["복지", "장애인지원 안내", "보건복지부"],
+      ["복지", "아동수당 안내", "지자체"],
+      ["세금", "지방세 납부 안내", "보건복지부"],
+      ["세금", "취득세 안내", "지자체"],
+      ["세금", "재산세 안내", "지자체"],
+      ["교통", "자동차등록 안내", "국토교통부"],
+      ["교통", "운전면허 안내", "보건복지부"],
+      ["교통", "주정차단속 안내", "국토교통부"],
+      ["재난", "재난지원금 안내", "행정안전부"],
+      ["재난", "대피소 안내", "국세청"],
+      ["재난", "안전신고 안내", "국세청"],
+      ["일자리", "국민취업지원 안내", "지자체"],
+      ["일자리", "구직급여 안내", "국토교통부"],
+      ["일자리", "청년일자리 안내", "지자체"],
+      ["교육", "평생교육 안내", "지자체"],
+      ["교육", "학자금 안내", "지자체"],
+      ["교육", "교육비지원 안내", "행정안전부"]
+    ];
+
+    const form = document.querySelector("#search-form");
+    const input = document.querySelector("#search-input");
+    const cards = document.querySelector("#category-cards");
+    const resultCount = document.querySelector("#results-count");
+
+    function render() {
+      const keyword = input.value.trim().toLocaleLowerCase();
+      const matchingServices = services.filter(([category, , institution]) =>
+        !keyword || category.toLocaleLowerCase().includes(keyword) || institution.toLocaleLowerCase().includes(keyword)
+      );
+      const groups = new Map();
+
+      for (const service of matchingServices) {
+        const [category] = service;
+        if (!groups.has(category)) groups.set(category, []);
+        groups.get(category).push(service);
+      }
+
+      resultCount.innerHTML = `결과 <strong>${matchingServices.length}건</strong>`;
+      cards.replaceChildren();
+
+      if (matchingServices.length === 0) {
+        const empty = document.createElement("p");
+        empty.className = "empty-state";
+        empty.textContent = "검색 결과가 없습니다. 다른 카테고리명이나 문의기관을 입력해 주세요.";
+        cards.append(empty);
+        return;
+      }
+
+      for (const [category, items] of groups) {
+        const institutionCounts = new Map();
+        for (const [, , institution] of items) {
+          institutionCounts.set(institution, (institutionCounts.get(institution) || 0) + 1);
+        }
+        const representative = [...institutionCounts].sort((a, b) => b[1] - a[1])[0][0];
+        const card = document.createElement("article");
+        card.className = "category-card";
+
+        const top = document.createElement("div");
+        top.className = "card-top";
+        const title = document.createElement("h3");
+        title.textContent = category;
+        const badge = document.createElement("span");
+        badge.className = "count-badge";
+        badge.textContent = `${items.length}건`;
+        top.append(title, badge);
+
+        const representativeLabel = document.createElement("p");
+        representativeLabel.className = "representative";
+        representativeLabel.append("대표 문의기관: ");
+        const representativeName = document.createElement("strong");
+        representativeName.textContent = representative;
+        representativeLabel.append(representativeName);
+
+        const list = document.createElement("ul");
+        list.className = "service-list";
+        for (const [, serviceName] of items) {
+          const item = document.createElement("li");
+          item.textContent = serviceName;
+          list.append(item);
+        }
+
+        card.append(top, representativeLabel, list);
+        cards.append(card);
+      }
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      render();
+    });
+    input.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>
